@@ -110,6 +110,19 @@ in
       }
     );
 
+  linux_6_19_sige7_unstable = pkgs.linuxKernel.packagesFor (
+    pkgs.linuxKernel.kernels.linux_6_19.override {
+      argsOverride = {
+        kernelPatches = [
+          {
+            name = "Set the clock of the brcm driver to 32khz as required by bcm43752.";
+            patch = ./patches/linux/6.19/rk3588-0802-wireless-add-clk-property.patch;
+          }
+        ];
+      }; 
+    }
+  );
+
   linux_6_17_orangepi5b_stable = pkgs-stable.linuxKernel.packagesFor (
     pkgs-stable.linuxKernel.kernels.linux_6_17.override {
       structuredExtraConfig = kernelConfig;

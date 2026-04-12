@@ -183,7 +183,7 @@
           };
           "Sige7" = {
             uBoot = uBoot.uBootSige7;
-            kernel = kernel.linux_latest_rockchip_stable;
+            kernel = kernel.linux_6_19_sige7_unstable;
             extraModules = [
               (brcm43752 system)
               noZFS
@@ -237,6 +237,8 @@
 
           kernel_linux_6_17_orangepi5b_stable = kernel.linux_6_17_orangepi5b_stable;
           kernel_linux_6_17_orangepi5b_unstable = kernel.linux_6_17_orangepi5b_unstable;
+
+          kernel_linux_6_19_sige7_unstable = kernel.linux_6_19_sige7_unstable;
         };
         packages = (images system) // {
           uBootQuartz64A = uBoot.uBootQuartz64A;
